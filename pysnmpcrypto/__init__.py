@@ -1,5 +1,5 @@
 # http://www.python.org/dev/peps/pep-0396/
-__version__ = '0.1.1'
+__version__ = '0.0.1'
 
 # Backend-selecting cryptographic logic to allow migration to pyca/cryptography
 # without immediately dropping support for legacy minor Python versions.
