@@ -3,11 +3,13 @@ Crypto logic for RFC3414.
 
 https://tools.ietf.org/html/rfc3414
 """
-from pysnmp.crypto import backend, CRYPTODOME, CRYPTOGRAPHY, generic_decrypt, generic_encrypt
+from pysnmpcrypto import (backend, CRYPTODOME, CRYPTOGRAPHY,
+                          generic_decrypt, generic_encrypt)
 
 if backend == CRYPTOGRAPHY:
     from cryptography.hazmat.backends import default_backend
     from cryptography.hazmat.primitives.ciphers import algorithms, Cipher, modes
+
 elif backend == CRYPTODOME:
     from Cryptodome.Cipher import DES
 

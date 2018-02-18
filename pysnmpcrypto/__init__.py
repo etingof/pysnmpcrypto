@@ -8,20 +8,27 @@ __version__ = '0.1.1'
 # version. Versions that are supported by pyca/cryptography use that backend; all
 # other versions (currently 2.4, 2.5, 2.6, 3.2, and 3.3) fall back to Pycryptodome.
 
-from pysnmp.proto import errind, error
 CRYPTOGRAPHY = 'cryptography'
 CRYPTODOME = 'Cryptodome'
 
 # Determine the available backend. Always prefer cryptography if it is available.
 try:
     import cryptography
+
     backend = CRYPTOGRAPHY
+
 except ImportError:
     try:
         import Cryptodome
+
         backend = CRYPTODOME
+
     except ImportError:
         backend = None
+
+
+class PysnmpCryptoError(Exception):
+    """General pysnmpcrypto error"""
 
 
 def _cryptodome_encrypt(cipher_factory, plaintext, key, iv):
@@ -110,9 +117,8 @@ def generic_encrypt(cipher_factory_map, plaintext, key, iv):
     :rtype: bytes
     """
     if backend is None:
-        raise error.StatusInformation(
-            errorIndication=errind.encryptionError
-        )
+        raise PysnmpCryptoError('Crypto backend not available')
+
     return _ENCRYPT_MAP[backend](cipher_factory_map[backend], plaintext, key, iv)
 
 
@@ -128,7 +134,6 @@ def generic_decrypt(cipher_factory_map, ciphertext, key, iv):
     :rtype: bytes
     """
     if backend is None:
-        raise error.StatusInformation(
-            errorIndication=errind.decryptionError
-        )
+        raise PysnmpCryptoError('Crypto backend not available')
+
     return _DECRYPT_MAP[backend](cipher_factory_map[backend], ciphertext, key, iv)
