@@ -1,9 +1,8 @@
 
 Strong crypto support for PySNMP
 --------------------------------
-[![PyPI](https://img.shields.io/pypi/v/pysnmpcrypto.svg?maxAge=2592000)](https://pypi.python.org/pypi/pysnmpcrypto)
-[![Python Versions](https://img.shields.io/pypi/pyversions/pysnmpcrypto.svg)](https://pypi.python.org/pypi/pysnmpcrypto/)
-[![Build status](https://travis-ci.org/etingof/pysnmpcrypto.svg?branch=master)](https://secure.travis-ci.org/etingof/pysnmpcrypto)
+[![PyPI](https://img.shields.io/pypi/v/pysnmpcrypto.svg?maxAge=2592000)](https://pypi.org/project/pysnmpcrypto)
+[![Python Versions](https://img.shields.io/pypi/pyversions/pysnmpcrypto.svg)](https://pypi.org/project/pysnmpcrypto/)
 [![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg)](https://raw.githubusercontent.com/etingof/pysnmpcrypto/master/LICENSE.txt)
 
 The pysnmpcrypto package is an optional extension to the SNMP library for
@@ -22,7 +21,7 @@ Download & Install
 ------------------
 
 The `pysnmpcrypto` package is freely available for download from
-[PyPI](https://pypi.python.org/pypi/pysnmpcrypto)
+[PyPI](https://pypi.org/project/pysnmpcrypto)
 and [GitHub](https://github.com/etingof/pysnmpcrypto.git).
 
 Just run:
