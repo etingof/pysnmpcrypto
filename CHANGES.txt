@@ -1,4 +1,9 @@
 
+Revision 0.0.2, released 2018-07-XX
+-----------------------------------
+
+- Bumped upper Python version to 3.7
+
 Revision 0.0.1, released 2018-02-19
 -----------------------------------
 

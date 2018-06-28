@@ -1,17 +1,19 @@
 # http://www.python.org/dev/peps/pep-0396/
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
-# Backend-selecting cryptographic logic to allow migration to pyca/cryptography
-# without immediately dropping support for legacy minor Python versions.
-#
-# On installation, the correct backend dependency is selected based on the Python
-# version. Versions that are supported by pyca/cryptography use that backend; all
-# other versions (currently 2.4, 2.5, 2.6, 3.2, and 3.3) fall back to Pycryptodome.
+# Backend-selecting cryptographic logic to allow migration to
+# pyca/cryptography without immediately dropping support for legacy
+# minor Python versions.
+# On installation, the correct backend dependency is selected based
+# on the Python version. Versions that are supported by
+# pyca/cryptography use that backend; all other versions
+# (currently 2.4, 2.5, 2.6, 3.2, and 3.3) fall back to Pycryptodome.
 
 CRYPTOGRAPHY = 'cryptography'
 CRYPTODOME = 'Cryptodome'
 
-# Determine the available backend. Always prefer cryptography if it is available.
+# Determine the available backend. Always prefer cryptography if
+# it is available.
 try:
     import cryptography
 
