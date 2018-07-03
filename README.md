@@ -50,4 +50,4 @@ If something does not work as expected with `pysnmpcrypto`, please
 
 Bug reports and PRs are appreciated! ;-)
 
-Copyright (c) 2005-2018, [Ilya Etingof](mailto:etingof@gmail.com). All rights reserved.
+Copyright (c) 2018, [Ilya Etingof](mailto:etingof@gmail.com). All rights reserved.
