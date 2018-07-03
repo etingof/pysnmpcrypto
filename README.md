@@ -3,6 +3,8 @@ Strong crypto support for PySNMP
 --------------------------------
 [![PyPI](https://img.shields.io/pypi/v/pysnmpcrypto.svg?maxAge=2592000)](https://pypi.org/project/pysnmpcrypto)
 [![Python Versions](https://img.shields.io/pypi/pyversions/pysnmpcrypto.svg)](https://pypi.org/project/pysnmpcrypto/)
+[![Build status](https://travis-ci.org/etingof/pysnmpcrypto.svg?branch=master)](https://secure.travis-ci.org/etingof/pysnmpcrypto)
+[![Coverage Status](https://img.shields.io/codecov/c/github/etingof/pysnmpcrypto.svg)](https://codecov.io/github/etingof/pysnmpcrypto)
 [![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg)](https://raw.githubusercontent.com/etingof/pysnmpcrypto/master/LICENSE.txt)
 
 The pysnmpcrypto package is an optional extension to the SNMP library for

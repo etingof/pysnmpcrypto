@@ -1,2 +1,4 @@
-include *.txt *.md
+include *.rst *.md *.txt
+recursive-include tests *.py
 prune docs/build
+prune docs/source/.templates
