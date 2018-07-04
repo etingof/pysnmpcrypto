@@ -12,7 +12,7 @@ try:
 except ImportError:
     import unittest
 
-from pysnmpcrypto import tripledes
+from pysnmpcrypto import des
 
 
 class DesCaseBase(unittest.TestCase):
@@ -31,11 +31,11 @@ class DesCaseBase(unittest.TestCase):
             self.iv = b'01234567'
 
     def testEncrypt(self):
-        ciphertext = tripledes.encrypt(self.plaintext, self.key, self.iv)
+        ciphertext = des.encrypt(self.plaintext, self.key, self.iv)
         self.assertEqual(ciphertext, self.ciphertext)
 
     def testDecrypt(self):
-        plaintext = tripledes.decrypt(self.ciphertext, self.key, self.iv)
+        plaintext = des.decrypt(self.ciphertext, self.key, self.iv)
         self.assertEqual(plaintext, self.plaintext)
 
 suite = unittest.TestLoader().loadTestsFromModule(sys.modules[__name__])

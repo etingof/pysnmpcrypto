@@ -112,11 +112,11 @@ class pytest(Command):
         pass
 
     def run(self):
-        suite = unittest.testloader().loadtestsfromnames(
+        suite = unittest.TestLoader().loadTestsFromNames(
             ['tests.__main__.suite']
         )
 
-        unittest.texttestrunner(verbosity=2).run(suite)
+        unittest.TextTestRunner(verbosity=2).run(suite)
 
 params['cmdclass'] = {
     'test': pytest,
