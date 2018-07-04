@@ -21,8 +21,8 @@ class DesCaseBase(unittest.TestCase):
             self.plaintext = 'quick brown fox'
             self.plaintext += '!' * (8 - len(self.plaintext) % 8)
             self.ciphertext = '^\xccf4G\xe4\xdck\x7f\x93\x15\xf6#\x0b\x81\xb7'
-            self.key = 'testkey123456789'
-            self.iv = '0123456789012345'
+            self.key = 'testkey1'
+            self.iv = '01234567'
         else:
             self.plaintext = b'quick brown fox'
             self.plaintext += b'!' * (8 - len(self.plaintext) % 8)

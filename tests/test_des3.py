@@ -20,14 +20,14 @@ class Des3CaseBase(unittest.TestCase):
         if sys.version_info[0] < 3:
             self.plaintext = 'quick brown fox'
             self.plaintext += '!' * (16 - len(self.plaintext) % 16)
-            self.ciphertext = '^\xccf4G\xe4\xdck\x7f\x93\x15\xf6#\x0b\x81\xb7'
+            self.ciphertext = 'XO9\xe8H\x11Try\x1b\xfe)\x07{\x8bu'
             self.key = 'testkey123456789'
-            self.iv = '0123456789012345'
+            self.iv = '01234567'
         else:
             self.plaintext = b'quick brown fox'
             self.plaintext += b'!' * (16 - len(self.plaintext) % 16)
-            self.ciphertext = b'^\xccf4G\xe4\xdck\x7f\x93\x15\xf6#\x0b\x81\xb7'
-            self.key = b'testkey1'
+            self.ciphertext = b'XO9\xe8H\x11Try\x1b\xfe)\x07{\x8bu'
+            self.key = b'testkey123456789'
             self.iv = b'01234567'
 
     def testEncrypt(self):
