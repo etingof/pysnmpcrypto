@@ -17,7 +17,7 @@ from pysnmpcrypto import des
 
 class DesCaseBase(unittest.TestCase):
     def setUp(self):
-        if sys.version_info[0] < 3:
+        if sys.version_info < (2, 6):
             self.plaintext = 'quick brown fox'
             self.plaintext += '!' * (8 - len(self.plaintext) % 8)
             self.ciphertext = '^\xccf4G\xe4\xdck\x7f\x93\x15\xf6#\x0b\x81\xb7'

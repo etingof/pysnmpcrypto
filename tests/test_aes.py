@@ -17,7 +17,7 @@ from pysnmpcrypto import aes
 
 class AesCaseBase(unittest.TestCase):
     def setUp(self):
-        if sys.version_info[0] < 3:
+        if sys.version_info < (2, 6):
             self.plaintext = 'quick brown fox'
             self.ciphertext = '\x19g*A\xad\x84\xb8c\xe4\xfa\x95J\xd1\xbe\xc1'
             self.key = 'testkey123456789'
