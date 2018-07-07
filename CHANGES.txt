@@ -1,5 +1,5 @@
 
-Revision 0.0.2, released 2018-07-XX
+Revision 0.0.2, released 2018-07-07
 -----------------------------------
 
 - Added unit tests and Travis CI hook
