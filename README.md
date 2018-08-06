@@ -8,7 +8,7 @@ Strong crypto support for PySNMP
 [![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg)](https://raw.githubusercontent.com/etingof/pysnmpcrypto/master/LICENSE.txt)
 
 The `pysnmpcrypto` package is an optional extension to SNMP library for
-Python [pysnmp](http://snmplabs.com/pysnmp/). The `pysnmpcrypto` library
+Python [pysnmp](http://snmplabs.com/pysnmp/) 5.0+. The `pysnmpcrypto` library
 provides stronger authentication and encryption features to the SNMP library
 by way of invoking stronger crypto algorithms.
 

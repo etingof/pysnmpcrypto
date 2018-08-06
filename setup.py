@@ -59,7 +59,7 @@ if py_version < (2, 4):
     print("ERROR: this package requires Python 2.4 or later!")
     sys.exit(1)
 
-if py_version < (2, 7) or (py_version >= (3, 0) and py_version < (3, 4)):
+if py_version < (2, 7) or (3, 0) <= py_version < (3, 4):
     requires = ['pycryptodomex']
 else:
     requires = ['cryptography']
