@@ -38,14 +38,14 @@ matrix:
     dist: xenial
     sudo: false
     python: 'nightly'
-#  - os: linux
-#    dist: xenial
-#    sudo: false
-#    python: 'pypy'
-#  - os: linux
-#    dist: xenial
-#    sudo: false
-#    python: 'pypy3'
+  - os: linux
+    dist: xenial
+    sudo: false
+    python: 'pypy'
+  - os: linux
+    dist: xenial
+    sudo: false
+    python: 'pypy3'
 install:
   - pip install codecov
   - pip install -r requirements.txt
