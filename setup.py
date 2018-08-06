@@ -59,13 +59,25 @@ if py_version < (2, 4):
     print("ERROR: this package requires Python 2.4 or later!")
     sys.exit(1)
 
-if py_version < (2, 7) or (3, 0) <= py_version < (3, 4):
-    requires = ['pycryptodomex']
-else:
-    requires = ['cryptography']
-
 try:
-    from setuptools import setup, Command
+    import setuptools
+
+    setup, Command = setuptools.setup, setuptools.Command
+
+    observed_version = [int(x) for x in setuptools.__version__.split('.')]
+    required_version = [36, 2, 0]
+
+    # NOTE(etingof): require fresh setuptools to build proper wheels
+    # See also: https://hynek.me/articles/conditional-python-dependencies/
+    if ('bdist_wheel' in sys.argv and
+            observed_version < required_version):
+        print("ERROR: your wheels won't come out round with setuptools %s! "
+              "Upgrade to %s and try again." % (
+                '.'.join([str(x) for x in observed_version]),
+                '.'.join([str(x) for x in required_version])))
+        sys.exit(1)
+
+    requires = [ln.strip() for ln in open('requirements.txt').readlines()]
 
     params = {
         'install_requires': requires,
@@ -73,14 +85,17 @@ try:
     }
 
 except ImportError:
-    for arg in sys.argv:
-        if 'egg' in arg:
-            howto_install_setuptools()
-            sys.exit(1)
+    if 'bdist_wheel' in sys.argv or 'bdist_egg' in sys.argv:
+        howto_install_setuptools()
+        sys.exit(1)
 
     from distutils.core import setup, Command
 
+    # assume really old Python
+    requires = ['pycryptodomex']
+
     params = {}
+
     if py_version > (2, 4):
         params['requires'] = requires
 

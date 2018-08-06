@@ -1,5 +1,7 @@
 pycryptodomex; python_version < '2.7'
 cryptography; python_version == '2.7'
+pycryptodomex; python_version == '3.0'
+pycryptodomex; python_version == '3.1'
 pycryptodomex; python_version == '3.2'
 pycryptodomex; python_version == '3.3'
 cryptography; python_version >= '3.4'
