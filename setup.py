@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 """Strong cryptography support for PySNMP (SNMP library for Python)
+
+The pysnmpcrypto package is an optional extension to SNMP library
+for Python -- pysnmp 5.0+. The pysnmpcrypto library provides
+stronger authentication and encryption features to the SNMP
+library by way of invoking stronger crypto algorithms.
+
+The pysnmpcrypto library runs on Python 2.4 through 3.7 and has a
+dependency on either PyCryptodomex (for Python versions 2.4-2.6
+and 3.2-3.3) or Cryptography (for Python versions 2.7 and 3.4+).
 """
 
 import sys
@@ -99,13 +108,13 @@ except ImportError:
     if py_version > (2, 4):
         params['requires'] = requires
 
-doclines = [x.strip() for x in (__doc__ or '').split('\n') if x]
+doclines = [x.strip() for x in (__doc__ or '').split('\n')]
 
 params.update({
     'name': 'pysnmpcrypto',
     'version': open(os.path.join('pysnmpcrypto', '__init__.py')).read().split('\'')[1],
     'description': doclines[0],
-    'long_description': ' '.join(doclines[1:]),
+    'long_description': '\n'.join(doclines[1:]),
     'maintainer': 'Ilya Etingof <etingof@gmail.com>',
     'author': 'Ilya Etingof',
     'author_email': 'etingof@gmail.com',
