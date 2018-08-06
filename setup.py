@@ -96,7 +96,7 @@ try:
 
         for requirement in requires:
             match = re.match(
-                r'(.*?)\s*;\s*python_version\s*([<>=!±]+)\s*\'(.*?)\'', requirement)
+                r'(.*?)\s*;\s*python_version\s*([<>=!~]+)\s*\'(.*?)\'', requirement)
 
             if not match:
                 resolved_requires.append(requirement)
