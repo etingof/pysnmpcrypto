@@ -18,6 +18,7 @@ import re
 # handle unittest discovery feature
 try:
     import unittest2 as unittest
+
 except ImportError:
     import unittest
 
@@ -69,6 +70,32 @@ if py_version < (2, 4):
     print("ERROR: this package requires Python 2.4 or later!")
     sys.exit(1)
 
+requires = [ln.strip() for ln in open('requirements.txt').readlines()]
+
+resolved_requires = []
+
+# NOTE(etingof): older setuptools fail at parsing python_version
+for requirement in requires:
+    match = re.match(
+        r'(.*?)\s*;\s*python_version\s*([<>=!~]+)\s*\'(.*?)\'', requirement)
+
+    if not match:
+        resolved_requires.append(requirement)
+        continue
+
+    package, condition, expected_py = match.groups()
+
+    expected_py = tuple([int(x) for x in expected_py.split('.')])
+
+    if py_version == expected_py and condition in ('<=', '==', '>='):
+        resolved_requires.append(package)
+
+    elif py_version < expected_py and condition in ('<=', '<'):
+        resolved_requires.append(package)
+
+    elif py_version > expected_py and condition in ('>=', '>'):
+        resolved_requires.append(package)
+
 try:
     import setuptools
 
@@ -87,36 +114,8 @@ try:
                 '.'.join([str(x) for x in required_version])))
         sys.exit(1)
 
-    requires = [ln.strip() for ln in open('requirements.txt').readlines()]
-
-    # NOTE(etingof): older setuptools fail at parsing python_version
-
     if observed_version < required_version:
-        resolved_requires = []
-
-        for requirement in requires:
-            match = re.match(
-                r'(.*?)\s*;\s*python_version\s*([<>=!~]+)\s*\'(.*?)\'', requirement)
-
-            if not match:
-                resolved_requires.append(requirement)
-                continue
-
-            package, condition, expected_py = match.groups()
-
-            expected_py = tuple([int(x) for x in expected_py.split('.')])
-
-            if py_version == expected_py and condition in ('<=', '==', '>='):
-                resolved_requires.append(package)
-
-            elif py_version < expected_py and condition in ('<=', '<'):
-                resolved_requires.append(package)
-
-            elif py_version > expected_py and condition in ('>=', '>'):
-                resolved_requires.append(package)
-
         requires = resolved_requires
-
 
     params = {
         'install_requires': requires,
@@ -130,13 +129,13 @@ except ImportError:
 
     from distutils.core import setup, Command
 
-    # assume really old Python
-    requires = ['pycryptodomex']
-
     params = {}
 
     if py_version > (2, 4):
-        params['requires'] = requires
+        params['requires'] = [
+            re.sub(r'(.*?)([<>=!~]+)(.*)', r'\g<1>\g<2>(\g<3>)', r)
+            for r in resolved_requires
+        ]
 
 doclines = [x.strip() for x in (__doc__ or '').split('\n')]
 
