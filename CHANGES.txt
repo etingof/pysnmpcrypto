@@ -1,8 +1,8 @@
 
-Revision 0.0.4, released 2018-08-XX
+Revision 0.0.4, released 2018-12-XX
 -----------------------------------
 
-No changes so far
+- Copyright notice extended to the year 2019
 
 Revision 0.0.3, released 2018-08-06
 -----------------------------------

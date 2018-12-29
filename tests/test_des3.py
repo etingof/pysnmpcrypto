@@ -1,7 +1,7 @@
 #
 # This file is part of pysnmpcrypto software.
 #
-# Copyright (c) 2018, Ilya Etingof <etingof@gmail.com>
+# Copyright (c) 2018-2019, Ilya Etingof <etingof@gmail.com>
 # License: http://snmplabs.com/pysnmp/license.html
 #
 import sys
