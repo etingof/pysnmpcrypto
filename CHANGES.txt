@@ -1,5 +1,5 @@
 
-Revision 0.0.4, released 2018-12-XX
+Revision 0.0.4, released 2018-12-29
 -----------------------------------
 
 - Copyright notice extended to the year 2019
