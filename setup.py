@@ -6,8 +6,8 @@ for Python -- pysnmp 5.0+. The pysnmpcrypto library provides
 stronger authentication and encryption features to the SNMP
 library by way of invoking stronger crypto algorithms.
 
-The pysnmpcrypto library runs on Python 2.4 through 3.7 and has a
-dependency on either PyCryptodomex (for Python versions 2.4-2.6
+The pysnmpcrypto library runs on Python 2.6 through 3.7 and has a
+dependency on either PyCryptodomex (for Python versions 2.6
 and 3.2-3.3) or Cryptography (for Python versions 2.7 and 3.4+).
 """
 
@@ -34,8 +34,6 @@ License :: OSI Approved :: BSD License
 Natural Language :: English
 Operating System :: OS Independent
 Programming Language :: Python :: 2
-Programming Language :: Python :: 2.4
-Programming Language :: Python :: 2.5
 Programming Language :: Python :: 2.6
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
@@ -66,8 +64,8 @@ def howto_install_setuptools():
 
 
 py_version = sys.version_info[:2]
-if py_version < (2, 4):
-    print("ERROR: this package requires Python 2.4 or later!")
+if py_version < (2, 6):
+    print("ERROR: this package requires Python 2.6 or later!")
     sys.exit(1)
 
 requires = [ln.strip() for ln in open('requirements.txt').readlines()]
@@ -129,13 +127,10 @@ except ImportError:
 
     from distutils.core import setup, Command
 
-    params = {}
-
-    if py_version > (2, 4):
-        params['requires'] = [
-            re.sub(r'(.*?)([<>=!~]+)(.*)', r'\g<1>\g<2>(\g<3>)', r)
-            for r in resolved_requires
-        ]
+    params = {'requires': [
+        re.sub(r'(.*?)([<>=!~]+)(.*)', r'\g<1>\g<2>(\g<3>)', r)
+        for r in resolved_requires]
+    }
 
 doclines = [x.strip() for x in (__doc__ or '').split('\n')]
 
@@ -170,6 +165,7 @@ class pytest(Command):
         )
 
         unittest.TextTestRunner(verbosity=2).run(suite)
+
 
 params['cmdclass'] = {
     'test': pytest,
