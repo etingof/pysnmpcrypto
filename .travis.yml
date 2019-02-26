@@ -8,12 +8,13 @@ matrix:
   - os: linux
     dist: trusty
     python: '2.7'
-  - os: linux
-    dist: trusty
-    python: '3.2'
-  - os: linux
-    dist: trusty
-    python: '3.3'
+  # Cryptodome seems broken on Py 3.2&3.3
+  #- os: linux
+  #  dist: trusty
+  #  python: '3.2'
+  #- os: linux
+  #  dist: trusty
+  #  python: '3.3'
   - os: linux
     dist: trusty
     python: '3.4'
@@ -39,7 +40,7 @@ matrix:
 install:
   - pip install codecov
   - pip install -r requirements.txt
-  - pip install -e .
+  - pip install .
 script:
   - PYTHONPATH=.:$PYTHONPATH python tests/__main__.py
 after_success:

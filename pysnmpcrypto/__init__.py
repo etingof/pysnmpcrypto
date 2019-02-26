@@ -7,7 +7,7 @@ __version__ = '0.0.4'
 # On installation, the correct backend dependency is selected based
 # on the Python version. Versions that are supported by
 # pyca/cryptography use that backend; all other versions
-# (currently 2.4, 2.5, 2.6, 3.2, and 3.3) fall back to Pycryptodome.
+# (currently  2.6, 3.2, and 3.3) fall back to Pycryptodome.
 
 CRYPTOGRAPHY = 'cryptography'
 CRYPTODOME = 'Cryptodome'

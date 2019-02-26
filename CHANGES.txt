@@ -1,4 +1,9 @@
 
+Revision 0.1.0, released 2019-03-XX
+-----------------------------------
+
+- Drop support for Python older than 2.6
+
 Revision 0.0.4, released 2018-12-29
 -----------------------------------
 

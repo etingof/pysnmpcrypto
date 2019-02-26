@@ -12,9 +12,9 @@ Python [pysnmp](http://snmplabs.com/pysnmp/) 5.0+. The `pysnmpcrypto` library
 provides stronger authentication and encryption features to the SNMP library
 by way of invoking stronger crypto algorithms.
 
-The `pysnmpcrypto` library runs on Python 2.4 through 3.7 and has a dependency
+The `pysnmpcrypto` library runs on Python 2.6 through 3.7 and has a dependency
 on either [PyCryptodomex](https://github.com/Legrandin/pycryptodome) (for Python
-versions 2.4-2.6 and 3.2-3.3) or
+versions 2.6 and 3.2-3.3) or
 [Cryptography](https://github.com/pyca/cryptography) (for Python versions
 2.7 and 3.4+).
 
