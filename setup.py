@@ -10,17 +10,12 @@ The pysnmpcrypto library runs on Python 2.6 through 3.7 and has a
 dependency on either PyCryptodomex (for Python versions 2.6
 and 3.2-3.3) or Cryptography (for Python versions 2.7 and 3.4+).
 """
-
 import sys
 import os
 import re
 
 # handle unittest discovery feature
-try:
-    import unittest2 as unittest
-
-except ImportError:
-    import unittest
+import unittest
 
 classifiers = """\
 Development Status :: 5 - Production/Stable
